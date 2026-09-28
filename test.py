@@ -38,34 +38,32 @@ class Library:
         self.items.append(item)
 
     def check_out_item(self, title):
-        for self.item in self.items:
-            if self.title == title:
+        for item in self.items:
+            if item.title == title:
                 if self.item.is_checked_out:
                     print(f"'{title}' is already checked out.")
                 else:
                     self.item.check_out()
                     print(f"'{title}' checked out.")
-            return
-        print(f"{self.title} not found in the library.")
+                return
+        print(f"{title} not found in the library.")
 
     def return_item(self, title):
-        for self.item in self.items:
-            if self.title == title:
-                if not self.item.is_checkedout:
+        for item in self.items:
+            if item.title == title:
+                if not self.item.is_checked_out:
                     print(f"'{title}' was not checked out.")
                 else:
                     self.item.return_item()
-                    print(f"{self.title} has been returned.")
-            return
-        print(f"{self.title} not found in the library.")
+                    print(f"{title} has been returned.")
+                return
+        print(f"{title} not found in the library.")
 
     def list_available_items(self):
         available = False
         for self.item in self.items:
-            if not self.item.checked_out:
+            if not self.item.is_checked_out:
                 print(self.item)
                 available = True
         if not available:
             print("No Items available.")
-        pass
-    
