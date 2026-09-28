@@ -69,6 +69,3 @@ class Library:
             print("No Items available.")
         pass
     
-
-book1 = Media("Ugly love", "Ana hung", True)
-print(book1.title)
